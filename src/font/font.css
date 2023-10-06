@@ -1,0 +1,15 @@
+@font-face {
+  src: url(./Quicksand-Medium.woff2) format('woff2'),
+    url(./Quicksand-Medium.woff) format('woff'),
+    url(./Quicksand-Medium.ttf) format('truetype');
+  font-family: 'Quicksand';
+  font-weight: 500;
+}
+
+@font-face {
+  src: url(./Quicksand-Bold.woff2) format('woff2'),
+    url(./Quicksand-Bold.woff) format('woff'),
+    url(./Quicksand-Bold.ttf) format('truetype');
+  font-family: 'Quicksand';
+  font-weight: 700;
+}
