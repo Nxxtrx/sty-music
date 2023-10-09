@@ -13,3 +13,19 @@
   font-family: 'Quicksand';
   font-weight: 700;
 }
+
+@font-face {
+  src: url(./Quicksand-Regular.woff2) format('woff2'),
+    url(./Quicksand-Regular.woff) format('woff'),
+    url(./Quicksand-Regular.ttf) format('truetype');
+  font-family: 'Quicksand';
+  font-weight: 400;
+}
+
+@font-face {
+  src: url(./Quicksand-Light.woff2) format('woff2'),
+    url(./Quicksand-Light.woff) format('woff'),
+    url(./Quicksand-Light.ttf) format('truetype');
+  font-family: 'Quicksand';
+  font-weight: 300;
+}
