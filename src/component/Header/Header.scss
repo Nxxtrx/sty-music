@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 23px;
+  justify-content: flex-start;
+}
+
+.header__logo{
+  width: 34px;
+  height: 34px;
+  margin-bottom: 34px;
+}
+
+.header__menu-page{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+  padding-top: 25px;
+  padding-bottom: 24px;
+  margin: 0;
+  border-radius: 32px;
+  background-color: #1A1E1F;
+}
+
+.header__menu-page:first-child{
+  margin-bottom: 20px;
+}
+
+.header__menu-item {
+  list-style-type: none;
+}
+
+.header__menu-image{
+  display: block;
+  margin: 0 auto;
+}
