@@ -15,9 +15,30 @@ type Props = {
   handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleTimeUpdate: () => void,
   nextSong: () => void,
+  previousSong: () => void,
+  toggleRepeat: () => void,
+  toggleShuffle: () => void,
 }
 
-const Player = ({audioRef, url, artist, songName, coverImg, playMusic, progressBarRef, changeRange, volume, seekBarPos, handleVolumeChange, handleTimeUpdate, nextSong}: Props) => {
+const Player = (
+  {
+    audioRef,
+    url,
+    artist,
+    songName,
+    coverImg,
+    playMusic,
+    progressBarRef,
+    changeRange,
+    volume,
+    seekBarPos,
+    handleVolumeChange,
+    handleTimeUpdate,
+    nextSong,
+    previousSong,
+    toggleRepeat,
+    toggleShuffle
+  }: Props) => {
   return(
     <section className='player'>
       <div className='player__artist'>
@@ -30,12 +51,12 @@ const Player = ({audioRef, url, artist, songName, coverImg, playMusic, progressB
 
       <div className='player__bar'>
         <div className='player__btn-list'>
-          <button className='player__btn player__shuffle-btn'></button>
-          <button className='player__btn player__back-btn'></button>
+          <button className='player__btn player__shuffle-btn' onClick={toggleShuffle}></button>
+          <button className='player__btn player__back-btn' onClick={previousSong}></button>
           <button className='player__btn player__play-btn' onClick={playMusic}></button>
           <button className='player__btn player__next-btn' onClick={nextSong}></button>
-          <button className='player__btn player__repeat-btn'></button>
-          <audio ref={audioRef} src={url} onTimeUpdate={handleTimeUpdate}></audio>
+          <button className='player__btn player__repeat-btn' onClick={toggleRepeat}></button>
+          <audio ref={audioRef} src={url} onTimeUpdate={handleTimeUpdate} autoPlay></audio>
         </div>
         <input className='player__music' type="range" min={0} step={0.01} value={seekBarPos} ref={progressBarRef} onChange={changeRange}/>
       </div>
