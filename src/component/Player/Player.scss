@@ -1,8 +1,13 @@
 $shuffle-icon: url('../../../public/image/shuffle.svg');
 $previous-con: url('../../../public/image/previous.svg');
+$previous-con-colored: url('../../../public/image/previous-colored.svg');
 $play-icon: url('../../../public/image/play.svg');
+$pause-icon: url('../../../public/image/Pause.svg');
 $next-icon: url('../../../public/image/next.svg');
+$next-icon-colored: url('../../../public/image/next-colored.svg');
 $repeat-icon: url('../../../public/image/repeate-one.svg');
+$repeat-icon-colored: url('../../../public/image/repeate-one-colored.svg');
+$shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
 
 
 
@@ -75,10 +80,17 @@ input[type="range"] {
   background-image: $shuffle-icon;
 }
 
+.player__shuffle-btn_type_active{
+  background-image: $shuffle-icon-colored;
+}
+
 .player__back-btn{
   background-image: $previous-con;
 }
 
+.player__back-btn:active{
+  background-image: $previous-con-colored;
+}
 
 .player__play-btn{
   background-image: $play-icon;
@@ -91,10 +103,27 @@ input[type="range"] {
   height: 25px;
 }
 
+.player__play-btn_type_pause{
+  background-image: $pause-icon;
+  background-size: 15px;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  box-shadow: 0px 0px 18px 0px rgba(248, 223, 2, 0.3);
+}
+
 .player__next-btn{
   background-image: $next-icon;
 }
 
+.player__next-btn:active{
+  background-image: $next-icon-colored;
+}
+
 .player__repeat-btn{
   background-image: $repeat-icon;
+}
+
+.player__repeat-btn_type_active{
+  background-image: $repeat-icon-colored;
 }

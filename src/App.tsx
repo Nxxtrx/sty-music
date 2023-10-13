@@ -148,6 +148,9 @@ function App() {
           artist={outputSongList[currentSongIndex].artist}
           songName={outputSongList[currentSongIndex].songName}
           coverImg={outputSongList[currentSongIndex].coverImg}
+          repeatSong={repeatSong}
+          isShuffle={isShuffle}
+          isPlaying={isPlaying}
           playMusic={playMusic}
           progressBarRef={progressBarRef}
           changeRange={changeRange}

@@ -9,6 +9,9 @@ type Props = {
   progressBarRef: any,
   volume: number,
   seekBarPos:number,
+  repeatSong: boolean,
+  isShuffle: boolean,
+  isPlaying: boolean,
 
   playMusic: () => void;
   changeRange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -27,6 +30,9 @@ const Player = (
     artist,
     songName,
     coverImg,
+    repeatSong,
+    isShuffle,
+    isPlaying,
     playMusic,
     progressBarRef,
     changeRange,
@@ -51,11 +57,11 @@ const Player = (
 
       <div className='player__bar'>
         <div className='player__btn-list'>
-          <button className='player__btn player__shuffle-btn' onClick={toggleShuffle}></button>
+          <button className={`player__btn player__shuffle-btn ${isShuffle ? 'player__shuffle-btn_type_active' : ''}`} onClick={toggleShuffle}></button>
           <button className='player__btn player__back-btn' onClick={previousSong}></button>
-          <button className='player__btn player__play-btn' onClick={playMusic}></button>
+          <button className={`player__btn player__play-btn ${isPlaying ? 'player__play-btn_type_pause' : ''}`} onClick={playMusic}></button>
           <button className='player__btn player__next-btn' onClick={nextSong}></button>
-          <button className='player__btn player__repeat-btn' onClick={toggleRepeat}></button>
+          <button className={`player__btn player__repeat-btn ${repeatSong ? 'player__repeat-btn_type_active' : ''}`} onClick={toggleRepeat}></button>
           <audio ref={audioRef} src={url} onTimeUpdate={handleTimeUpdate} autoPlay></audio>
         </div>
         <input className='player__music' type="range" min={0} step={0.01} value={seekBarPos} ref={progressBarRef} onChange={changeRange}/>
