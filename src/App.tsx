@@ -143,7 +143,7 @@ function App() {
     <div className="page">
       <Header />
       <main className="main">
-        <Home />
+        <Home setCurrentSongIndex={setCurrentSongIndex}/>
         <Player
           audioRef={audioRef}
           url={outputSongList[currentSongIndex].url}

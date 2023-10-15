@@ -81,8 +81,15 @@ input[type="range"] {
 .player__btn{
   width: 16px;
   height: 16px;
+  cursor: pointer;
   background-color: inherit;
   border: none;
+  opacity: 1;
+  transition: opacity .2s linear;
+}
+
+.player__btn:hover{
+opacity: .5;
 }
 
 .player__shuffle-btn{
