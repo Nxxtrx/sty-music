@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sty-music/static/css/main.5e16badb.css",
-    "main.js": "/sty-music/static/js/main.f4bfa948.js",
+    "main.css": "/sty-music/static/css/main.a29dddfc.css",
+    "main.js": "/sty-music/static/js/main.2a73ae52.js",
     "static/media/Quicksand-Light.ttf": "/sty-music/static/media/Quicksand-Light.f2bf532b781b39be5f81.ttf",
     "static/media/Quicksand-Bold.ttf": "/sty-music/static/media/Quicksand-Bold.9bf9332ec0fc2f1f1e00.ttf",
     "static/media/Quicksand-Regular.ttf": "/sty-music/static/media/Quicksand-Regular.bbc435b5553557b90fd9.ttf",
@@ -25,11 +25,11 @@
     "static/media/next.svg": "/sty-music/static/media/next.821782e5ffc24e71e2fe.svg",
     "static/media/play.svg": "/sty-music/static/media/play.ec33adbbe51ad9127bdd.svg",
     "static/media/Pause.svg": "/sty-music/static/media/Pause.c37b7f996ce4b9a2e7ed.svg",
-    "main.5e16badb.css.map": "/sty-music/static/css/main.5e16badb.css.map",
-    "main.f4bfa948.js.map": "/sty-music/static/js/main.f4bfa948.js.map"
+    "main.a29dddfc.css.map": "/sty-music/static/css/main.a29dddfc.css.map",
+    "main.2a73ae52.js.map": "/sty-music/static/js/main.2a73ae52.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e16badb.css",
-    "static/js/main.f4bfa948.js"
+    "static/css/main.a29dddfc.css",
+    "static/js/main.2a73ae52.js"
   ]
 }
