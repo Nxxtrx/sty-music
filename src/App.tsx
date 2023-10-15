@@ -113,14 +113,16 @@ function App() {
   }
 
   function shuffleSongs(songsArray: SongInfo[]): SongInfo[] {
-    let length = songsArray.length
+    const shuffledArray = [...songsArray]
+
+    let length = shuffledArray.length
     while(length) {
       let i = Math.floor(Math.random() * length--)
-      let t = songsArray[length];
-      songsArray[length] = songsArray[i]
-      songsArray[i] = t
+      let t = shuffledArray[length];
+      shuffledArray[length] = shuffledArray[i]
+      shuffledArray[i] = t
     }
-    return songsArray
+    return shuffledArray
   }
 
   const handleTimeUpdate = () => {

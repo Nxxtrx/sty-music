@@ -1,6 +1,20 @@
 import './Home.scss'
+import { useSelector, useDispatch } from 'react-redux';
+import { setMusicList } from '../../toolkitRedux/musicListSlice';
+import { MusicList } from '../../utils/musicList';
+import React from 'react';
+import { RootState } from '../../toolkitRedux/store';
 
-const Home = () => {
+const Home: React.FC = () => {
+
+  const dispatch = useDispatch();
+  const music = useSelector((state: RootState) =>state.musicList.musicList)
+
+  React.useEffect(() => {
+    dispatch(setMusicList(MusicList))
+  }, [dispatch])
+
+
   return (
     <section className='home'>
       <div className='home__search'>
@@ -30,33 +44,18 @@ const Home = () => {
         <div className='home__chart'>
           <h2 className='chart__title'>Top charts</h2>
           <ul className='chart__list'>
-            <li className='chart__item'>
-              <img className='chart__image' src="/image/rectangle1.png" alt="" />
-              <div className='chart__item-container'>
-                <h3 className='chart__item-title'>Golden age of 80s</h3>
-                <p className='chart__item-description'>Sean swadder</p>
-                <p className='chart__item-time'>2:34:45</p>
-              </div>
-              <button className='chart__item-like'><img className='chart__like-image' src="/image/like.svg" alt="" /></button>
-            </li>
-            <li className='chart__item'>
-              <img className='chart__image' src="/image/rectangle1.png" alt="" />
-              <div className='chart__item-container'>
-                <h3 className='chart__item-title'>Golden age of 80s</h3>
-                <p className='chart__item-description'>Sean swadder</p>
-                <p className='chart__item-time'>2:34:45</p>
-              </div>
-              <button className='chart__item-like'><img className='chart__like-image' src="/image/like.svg" alt="" /></button>
-            </li>
-            <li className='chart__item'>
-              <img className='chart__image' src="/image/rectangle1.png" alt="" />
-              <div className='chart__item-container'>
-                <h3 className='chart__item-title'>Golden age of 80s</h3>
-                <p className='chart__item-description'>Sean swadder</p>
-                <p className='chart__item-time'>2:34:45</p>
-              </div>
-              <button className='chart__item-like'><img className='chart__like-image' src="/image/like.svg" alt="" /></button>
-            </li>
+            {music.slice(0, 3).map((item) => {
+              return (
+                <li className='chart__item'>
+                  <img className='chart__image' src={item.coverImg} alt="" />
+                  <div className='chart__item-container'>
+                    <h3 className='chart__item-title'>{item.songName}</h3>
+                    <p className='chart__item-description'>{item.artist}</p>
+                  </div>
+                  <button className='chart__item-like'><img className='chart__like-image' src="/image/like.svg" alt="" /></button>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>
@@ -64,30 +63,15 @@ const Home = () => {
       <div className='releases'>
         <h2 className='releases__title'>New Releases</h2>
         <ul className='releases__list'>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
-          <li className='releases__item'>
-            <img className='releases__item-image' src="/image/releases-image.png" alt="" />
-            <h3 className='releases__item-title'>Sean swadder</h3>
-          </li>
+          {music.map((item) => {
+            return (
+              <li className='releases__item'>
+                <img className='releases__item-image' src={item.coverImg} alt="" />
+                <h3 className='releases__item-title'>{item.artist}</h3>
+                <p className='releases__item-description'>{item.songName}</p>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

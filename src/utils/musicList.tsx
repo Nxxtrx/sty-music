@@ -28,8 +28,8 @@ export const MusicList: SongInfo[] = [
 
   {
     url: 'https://drive.google.com/uc?export=open&id=1cfMIeIv0lPIfOB2f53JDcdutmlbixy8O',
-    artist: 'True Love (feat. XXXTENTACION)',
-    songName: "Kanye West",
+    artist: 'Kanye West',
+    songName: "True Love (feat. XXXTENTACION)",
     coverImg: 'https://i.pinimg.com/236x/52/89/9e/52899e28353d17842ebb6e0439a6b298.jpg'
   },
 

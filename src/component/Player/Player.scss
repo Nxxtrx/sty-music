@@ -24,11 +24,17 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   backdrop-filter: blur(15px);
 }
 
+.player__artist-container{
+  max-width: 150px;
+}
+
 .player__artist{
   display: flex;
+  justify-content: start;
   align-items: center;
   grid-gap: 13px;
   min-width: 200px;
+  margin-right: 10px;
 }
 
 .player__song-title{
@@ -36,6 +42,7 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   font-weight: 700;
   line-height: 120%;
   margin: 0 0 3px;
+  max-width: 130px;
 }
 
 .player__sing-artist{
@@ -44,12 +51,14 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   line-height: 120%;
   color: #FFFFFF70;
   margin: 0;
+  text-overflow: ellipsis;
 }
 
 .player__song-img{
   width: 49px;
   height: 49px;
   border-radius: 14px;
+  object-fit: cover;
 }
 
 .player__music{
