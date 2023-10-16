@@ -1,6 +1,6 @@
 import './Home.scss'
 import { useSelector, useDispatch } from 'react-redux';
-import { setMusicList } from '../../toolkitRedux/musicListSlice';
+import { toggleLike } from '../../toolkitRedux/musicListSlice';
 import { MusicList } from '../../utils/musicList';
 import React from 'react';
 import { RootState } from '../../toolkitRedux/store';
@@ -12,22 +12,16 @@ type Props = {
 const Home = ({setCurrentSongIndex}:Props) => {
 
   const dispatch = useDispatch();
+
   const music = useSelector((state: RootState) =>state.musicList.musicList)
 
-  React.useEffect(() => {
-    dispatch(setMusicList(MusicList))
-  }, [dispatch])
-
+  const handleToggleLike = (index: number) => {
+    dispatch(toggleLike(index))
+  }
 
   return (
     <section className='home'>
-      <div className='home__search'>
-        <img className='home__search-img' src="./image/search.svg" alt="" />
-        <input className='home__input' type="text" placeholder='search'/>
-      </div>
-
       <div className='home__page'>
-
         <div className='banners'>
           <div className='banners__text-container'>
             <p className='banners__text'>Currated playlist</p>
@@ -58,7 +52,7 @@ const Home = ({setCurrentSongIndex}:Props) => {
                     <h3 className='chart__item-title'>{item.songName}</h3>
                     <p className='chart__item-description'>{item.artist}</p>
                   </div>
-                  <button className='chart__item-like'><img className='chart__like-image' src="./image/like.svg" alt="" /></button>
+                  <button className='chart__item-like' onClick={() => handleToggleLike(item.id)}><img className='chart__like-image' src={`${item.isLiked ? './image/liked.svg' : './image/like.svg'}`} alt="" /></button>
                 </li>
               )
             })}

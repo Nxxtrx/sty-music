@@ -1,11 +1,17 @@
 import './Player.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleLike } from '../../toolkitRedux/musicListSlice'
+import { RootState } from '../../toolkitRedux/store'
+import { useEffect, useState } from 'react'
 
 type Props = {
   audioRef: any,
   url: string,
   artist: string,
   songName: string,
-  coverImg: string
+  coverImg: string,
+  songId: number,
+  isLiked: Boolean,
   progressBarRef: any,
   volume: number,
   seekBarPos:number,
@@ -30,6 +36,8 @@ const Player = (
     artist,
     songName,
     coverImg,
+    songId,
+    isLiked,
     repeatSong,
     isShuffle,
     isPlaying,
@@ -45,6 +53,26 @@ const Player = (
     toggleRepeat,
     toggleShuffle
   }: Props) => {
+
+    const [like, setLike] = useState(false)
+
+    const dispatch = useDispatch();
+
+    const handleToggleLike = (index: number) => {
+      dispatch(toggleLike(index))
+    }
+
+    const likedMusicList = useSelector((state: RootState) =>state.musicList.likedMusicList)
+
+
+    useEffect(() => {
+      if(likedMusicList.some((item) => item.id === songId)){
+        setLike(true)
+      } else {
+        setLike(false)
+      }
+    }, [handleToggleLike])
+
   return(
     <section className='player'>
       <div className='player__artist'>
@@ -53,6 +81,7 @@ const Player = (
           <p className='player__song-title'>{songName}</p>
           <p className='player__sing-artist'>{artist}</p>
         </div>
+        <button className='player__item-like' onClick={() => handleToggleLike(songId)}><img className='player__like-image' src={`${like ? './image/liked.svg' : './image/like.svg'}`} alt="" /></button>
       </div>
 
       <div className='player__bar'>

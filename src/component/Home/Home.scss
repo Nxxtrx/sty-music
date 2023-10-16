@@ -2,29 +2,10 @@ $play-big: url(../../../public/image/play-big.svg);
 $play-std: url(../../../public/image/play.svg);
 
 
-.home__search{
-  padding-top: 31px;
-  display: flex;
-  grid-gap: 20px;
-  margin-bottom: 49px;
-}
 
 .home__page{
   display: flex;
   justify-content: space-between;
-}
-
-.home__search-img{
-  width: 16px;
-  height: 16px;
-}
-
-.home__input{
-  background-color: inherit;
-  border: none;
-  outline: none;
-  color: rgba(255, 255, 255, 0.25);
-  width: 250px;
 }
 
 .banners{

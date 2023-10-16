@@ -54,6 +54,21 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   text-overflow: ellipsis;
 }
 
+.player__item-like{
+  background-color: inherit;
+  border: none;
+}
+
+.player__like-image{
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.player__like-image:hover{
+  opacity: .5;
+}
+
 .player__song-img{
   width: 49px;
   height: 49px;
