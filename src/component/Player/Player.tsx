@@ -91,7 +91,7 @@ const Player = (
           <button className={`player__btn player__play-btn ${isPlaying ? 'player__play-btn_type_pause' : ''}`} onClick={playMusic}></button>
           <button className='player__btn player__next-btn' onClick={nextSong}></button>
           <button className={`player__btn player__repeat-btn ${repeatSong ? 'player__repeat-btn_type_active' : ''}`} onClick={toggleRepeat}></button>
-          <audio ref={audioRef} src={url} onTimeUpdate={handleTimeUpdate} autoPlay></audio>
+          <audio ref={audioRef} src={url} onTimeUpdate={handleTimeUpdate}></audio>
         </div>
         <input className='player__music' type="range" min={0} step={0.01} value={seekBarPos} ref={progressBarRef} onChange={changeRange}/>
       </div>

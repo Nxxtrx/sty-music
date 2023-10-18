@@ -1,12 +1,12 @@
 import './Home.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleLike } from '../../toolkitRedux/musicListSlice';
-import { MusicList } from '../../utils/musicList';
+import { MusicList, SongInfo } from '../../utils/musicList';
 import React from 'react';
 import { RootState } from '../../toolkitRedux/store';
 
 type Props = {
-  setCurrentSongIndex: (index: number) => void
+  setCurrentSongIndex: (songList: SongInfo[], index: number) => void
 }
 
 const Home = ({setCurrentSongIndex}:Props) => {
@@ -45,7 +45,7 @@ const Home = ({setCurrentSongIndex}:Props) => {
             {music.slice(0, 3).map((item, index) => {
               return (
                 <li className='chart__item' key={index}>
-                  <div className='chart__image-container' onClick={() => setCurrentSongIndex(index)}>
+                  <div className='chart__image-container' onClick={() => setCurrentSongIndex(music, index)}>
                     <img className='chart__image' src={item.coverImg}  alt="" />
                   </div>
                   <div className='chart__item-container'>
@@ -66,7 +66,7 @@ const Home = ({setCurrentSongIndex}:Props) => {
           {music.map((item, index) => {
             return (
               <li className='releases__item' key={index}>
-                <div className='releases__image-container' onClick={() => setCurrentSongIndex(index)}>
+                <div className='releases__image-container' onClick={() => setCurrentSongIndex(music, index)}>
                   <img className='releases__item-image' src={item.coverImg}  alt="" />
                 </div>
                 <h3 className='releases__item-title'>{item.artist}</h3>

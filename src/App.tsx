@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Routes, Route, useLocation} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from './toolkitRedux/store';
 import './font/font.css'
@@ -9,10 +9,7 @@ import { Search } from './component/Search/Search';
 import Home from './component/Home/Home'
 import { Library } from './component/Library/Library';
 import Player from './component/Player/Player';
-import { MusicList } from './utils/musicList';
 import { SongInfo } from './utils/musicList';
-
-
 
 function App() {
 
@@ -20,26 +17,19 @@ function App() {
   const [volume, setVolume] = React.useState<number>(0.1)
   const [currentSongIndex, setCurrentSongIndex] = React.useState<number>(0)
   const [outputSongList, setOutputSongList] = React.useState<SongInfo[]>(useSelector((state: RootState) =>state.musicList.musicList))
-  const [songList, setSongList] = React.useState<SongInfo[]>(useSelector((state: RootState) =>state.musicList.musicList))
   const [seekBarPos, setSeekBarPos] = React.useState<number>(0)
   const [repeatSong, setRepeatSong] = React.useState<boolean>(false)
   const [isShuffle, setIsShuffle] = React.useState<boolean>(false)
+  const [count, setCount] = React.useState<any>()
 
   const audioRef = React.useRef<HTMLAudioElement | null>(null)
   const progressBarRef = React.useRef<HTMLInputElement | null>(null)
-  const location = useLocation()
-  const likedMusicList = useSelector((state: RootState) =>state.musicList.likedMusicList)
 
-  useEffect(() => {
-    if(location.pathname === '/') {
-      setOutputSongList(songList)
-    }
-    if(location.pathname =='/library' && likedMusicList.length > 0){
-      setOutputSongList(likedMusicList)
-    }
-    console.log(outputSongList)
-  }, [currentSongIndex])
-
+  function choocePlaylist(songList: SongInfo[], index:number) {
+    setOutputSongList(songList)
+    setCurrentSongIndex(index)
+    setCount(index)
+  }
 
   useEffect(() => {
     if(isShuffle) {
@@ -48,6 +38,8 @@ function App() {
       setOutputSongList(outputSongList)
     }
   }, [isShuffle])
+
+  console.log(isPlaying)
 
   React.useEffect(() => {
     if(isPlaying) {
@@ -63,12 +55,18 @@ function App() {
     }
   }, [volume])
 
+  console.log(count)
+
   React.useEffect(() => {
-    if(audioRef.current) {
+
+    if(audioRef.current && count >= 0) {
       audioRef.current.src = outputSongList[currentSongIndex].url
       audioRef.current.load()
+      audioRef.current.play()
+      setIsPlaying(true)
     }
   }, [currentSongIndex])
+
 
   React.useEffect(() => {
     if(audioRef.current && progressBarRef.current){
@@ -103,7 +101,13 @@ function App() {
   };
 
   function playMusic() {
-    setIsPlaying(!isPlaying)
+    if(!isPlaying) {
+      setIsPlaying(true)
+      audioRef.current?.play()
+    } else {
+      setIsPlaying(false)
+      audioRef.current?.pause()
+    }
   }
 
   function nextSong() {
@@ -169,8 +173,8 @@ function App() {
       <main className="main">
         <Search></Search>
         <Routes>
-          <Route path='/' element={<Home setCurrentSongIndex={setCurrentSongIndex}/>} />
-          <Route path='library' element={<Library  setCurrentSongIndex={setCurrentSongIndex}/>} />
+          <Route path='/' element={<Home setCurrentSongIndex={choocePlaylist}/>} />
+          <Route path='library' element={<Library  setCurrentSongIndex={choocePlaylist}/>} />
         </Routes>
         <Player
           audioRef={audioRef}

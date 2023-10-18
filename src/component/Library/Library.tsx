@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 import './Library.scss'
 import { RootState } from '../../toolkitRedux/store'
+import { SongInfo } from '../../utils/musicList'
 
 type Props = {
-  setCurrentSongIndex: (index: number) => void
+  setCurrentSongIndex: (songList: SongInfo[] ,index: number) => void
 }
 
 export const Library =({setCurrentSongIndex}: Props) => {
@@ -16,7 +17,7 @@ export const Library =({setCurrentSongIndex}: Props) => {
       <ul className='library__container'>
         {isLikedSongList.map((item, index) => {
           return (
-            <li className='library__item' key={index} onClick={() => setCurrentSongIndex(index)}>
+            <li className='library__item' key={index} onClick={() => setCurrentSongIndex(isLikedSongList, index)}>
               <div className='library__image-container'>
                 <img className='library__item-image' src={item.coverImg}  alt="" />
               </div>
