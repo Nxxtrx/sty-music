@@ -15,6 +15,7 @@ $play-std: url(../../../public/image/play.svg);
   max-width: 686px;
   position: relative;
   overflow: hidden;
+  user-select: none;
 }
 
 .banners__text-container{
@@ -36,10 +37,12 @@ $play-std: url(../../../public/image/play.svg);
 .banners__human-like{
   height: 20px;
   margin-right: 3px;
+  pointer-events: none;
 }
 
 .banners__artist{
   z-index: 1;
+  pointer-events: none;
 }
 
 .banner__effect{
@@ -47,6 +50,7 @@ $play-std: url(../../../public/image/play.svg);
   top: 0px;
   right: 0px;
   z-index: 0;
+  pointer-events: none;
 }
 
 

@@ -5,11 +5,13 @@ import { SongInfo, MusicList } from "../utils/musicList";
 interface MusicListState {
   musicList: SongInfo[];
   likedMusicList: SongInfo[];
+  searchResult: SongInfo[];
 }
 
 const initialState: MusicListState ={
   musicList: MusicList,
-  likedMusicList: []
+  likedMusicList: [],
+  searchResult: []
 }
 
 const musicListSlice = createSlice({
@@ -27,20 +29,23 @@ const musicListSlice = createSlice({
           songToLike.isLiked = false
           state.likedMusicList = state.likedMusicList.filter((liked) => liked.id !== songToLike.id)
         }
-      }
 
-      // const songToLike = state.musicList[action.payload]
-      // const isLikedId = state.likedMusicList.some((liked) => liked.id === songToLike.id)
-      // if(!isLikedId) {
-      //   songToLike.isLiked = true
-      //   state.likedMusicList.push(songToLike)
-      // } else {
-      //   songToLike.isLiked = false
-      //   state.likedMusicList = state.likedMusicList.filter((liked) => liked.id !== songToLike.id)
-      // }
+        state.searchResult = state.searchResult.map((result) => {
+          if (result.id === songToLike.id) {
+            return {
+              ...result,
+              isLiked: songToLike.isLiked
+            };
+          }
+          return result;
+        });
+      }
+    },
+    setSearchResult: (state, action: PayloadAction<SongInfo[]> ) => {
+      state.searchResult = action.payload
     }
   },
 });
 
-export const { toggleLike } = musicListSlice.actions;
+export const { toggleLike, setSearchResult } = musicListSlice.actions;
 export default musicListSlice.reducer;

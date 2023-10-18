@@ -10,6 +10,9 @@ import Home from './component/Home/Home'
 import { Library } from './component/Library/Library';
 import Player from './component/Player/Player';
 import { SongInfo } from './utils/musicList';
+import { ResultSearch } from './component/ResultSearch/ResultSearch';
+import { useDispatch } from 'react-redux';
+import { setSearchResult } from './toolkitRedux/musicListSlice';
 
 function App() {
 
@@ -25,6 +28,10 @@ function App() {
   const audioRef = React.useRef<HTMLAudioElement | null>(null)
   const progressBarRef = React.useRef<HTMLInputElement | null>(null)
 
+  const dispatch = useDispatch()
+  const musicList = useSelector((state: RootState) =>state.musicList.musicList)
+
+
   function choocePlaylist(songList: SongInfo[], index:number) {
     setOutputSongList(songList)
     setCurrentSongIndex(index)
@@ -39,7 +46,6 @@ function App() {
     }
   }, [isShuffle])
 
-  console.log(isPlaying)
 
   React.useEffect(() => {
     if(isPlaying) {
@@ -55,7 +61,6 @@ function App() {
     }
   }, [volume])
 
-  console.log(count)
 
   React.useEffect(() => {
 
@@ -166,15 +171,20 @@ function App() {
     }
   }
 
+  const handleSearch = (search: string) => {
+    const searchResult = musicList.filter(item => item.songName.toLowerCase().includes(search) || item.artist.toLowerCase().includes(search))
+    dispatch(setSearchResult(searchResult))
+  }
 
   return (
     <div className="page">
       <Header />
       <main className="main">
-        <Search></Search>
+        <Search handleSearch={handleSearch}/>
         <Routes>
           <Route path='/' element={<Home setCurrentSongIndex={choocePlaylist}/>} />
           <Route path='library' element={<Library  setCurrentSongIndex={choocePlaylist}/>} />
+          <Route path='search' element={<ResultSearch setCurrentSongIndex={choocePlaylist}/>}/>
         </Routes>
         <Player
           audioRef={audioRef}

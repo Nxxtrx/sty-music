@@ -46,8 +46,8 @@ export const MusicList: SongInfo[] = [
   {
     id: 5,
     url: 'https://drive.google.com/uc?export=open&id=10r1drxxGoDJ6FYWFsT16GqKALUqk2go3',
-    artist: 'Blue Foundation',
-    songName: "Eyes On Fire",
+    artist: 'Marie Madelenie',
+    songName: "Swimming Pool",
     coverImg: 'https://i.pinimg.com/564x/b6/cc/a5/b6cca5cdc36b27df654301790530e19f.jpg',
     isLiked: false,
   },
