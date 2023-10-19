@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/sty-music/static/css/main.b068e688.css",
-    "main.js": "/sty-music/static/js/main.9d2f7916.js",
+    "main.js": "/sty-music/static/js/main.5c338d9f.js",
+    "static/media/photo.png": "/sty-music/static/media/photo.515fe965cd216c3fb9d4.png",
     "static/media/Quicksand-Light.ttf": "/sty-music/static/media/Quicksand-Light.f2bf532b781b39be5f81.ttf",
     "static/media/Quicksand-Bold.ttf": "/sty-music/static/media/Quicksand-Bold.9bf9332ec0fc2f1f1e00.ttf",
     "static/media/Quicksand-Regular.ttf": "/sty-music/static/media/Quicksand-Regular.bbc435b5553557b90fd9.ttf",
@@ -10,6 +11,7 @@
     "static/media/Quicksand-Regular.woff": "/sty-music/static/media/Quicksand-Regular.30a9ad4d9b7fc4ff2f35.woff",
     "static/media/Quicksand-Medium.woff": "/sty-music/static/media/Quicksand-Medium.ddc82766f671aa78c67c.woff",
     "static/media/Quicksand-Bold.woff": "/sty-music/static/media/Quicksand-Bold.e2a559c946c78e974ee8.woff",
+    "static/media/Vector.svg": "/sty-music/static/media/Vector.f2507a9f3b79a59c1282845f96f343b9.svg",
     "static/media/Quicksand-Regular.woff2": "/sty-music/static/media/Quicksand-Regular.f0781a5f799f250b8f9e.woff2",
     "static/media/Quicksand-Light.woff2": "/sty-music/static/media/Quicksand-Light.0d171db7e8b08913234c.woff2",
     "static/media/Quicksand-Medium.woff2": "/sty-music/static/media/Quicksand-Medium.3057383ef5c0de0f4ac0.woff2",
@@ -27,10 +29,10 @@
     "static/media/play-big.svg": "/sty-music/static/media/play-big.6b2bcaf23e10981c7e6b.svg",
     "static/media/Pause.svg": "/sty-music/static/media/Pause.c37b7f996ce4b9a2e7ed.svg",
     "main.b068e688.css.map": "/sty-music/static/css/main.b068e688.css.map",
-    "main.9d2f7916.js.map": "/sty-music/static/js/main.9d2f7916.js.map"
+    "main.5c338d9f.js.map": "/sty-music/static/js/main.5c338d9f.js.map"
   },
   "entrypoints": [
     "static/css/main.b068e688.css",
-    "static/js/main.9d2f7916.js"
+    "static/js/main.5c338d9f.js"
   ]
 }
