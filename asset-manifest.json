@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sty-music/static/css/main.b068e688.css",
-    "main.js": "/sty-music/static/js/main.ec79726a.js",
+    "main.js": "/sty-music/static/js/main.e36779ee.js",
     "static/media/photo.png": "/sty-music/static/media/photo.515fe965cd216c3fb9d4.png",
     "static/media/Quicksand-Light.ttf": "/sty-music/static/media/Quicksand-Light.f2bf532b781b39be5f81.ttf",
     "static/media/Quicksand-Bold.ttf": "/sty-music/static/media/Quicksand-Bold.9bf9332ec0fc2f1f1e00.ttf",
@@ -16,11 +16,15 @@
     "static/media/Quicksand-Light.woff2": "/sty-music/static/media/Quicksand-Light.0d171db7e8b08913234c.woff2",
     "static/media/Quicksand-Medium.woff2": "/sty-music/static/media/Quicksand-Medium.3057383ef5c0de0f4ac0.woff2",
     "static/media/Quicksand-Bold.woff2": "/sty-music/static/media/Quicksand-Bold.6c56378f74bcf8df511c.woff2",
+    "static/media/logo.svg": "/sty-music/static/media/logo.c58732e7d63e36071c311290154422bb.svg",
     "static/media/shuffle-colored.svg": "/sty-music/static/media/shuffle-colored.e65e6892fd38d47ea3aa.svg",
     "static/media/shuffle.svg": "/sty-music/static/media/shuffle.fb0e62e10c6e96932b66.svg",
+    "static/media/playlist.svg": "/sty-music/static/media/playlist.bf64d6ab60161e856098dcb8cfcc330e.svg",
     "static/media/repeate-one-colored.svg": "/sty-music/static/media/repeate-one-colored.a71fb2a10c083996fc7b.svg",
     "static/media/repeate-one.svg": "/sty-music/static/media/repeate-one.9522f5841d7ec37cf7c1.svg",
+    "static/media/volume.svg": "/sty-music/static/media/volume.e3cff1db4f558232f2625d4477ac1fe4.svg",
     "static/media/Heart.svg": "/sty-music/static/media/Heart.8c6a0426c20732f3f6516d45f872c1ef.svg",
+    "static/media/profile.svg": "/sty-music/static/media/profile.138b6cf969cd0127cf637ead18d532fe.svg",
     "static/media/like.svg": "/sty-music/static/media/like.b5219052f68db7e240381b9fcc785581.svg",
     "index.html": "/sty-music/index.html",
     "static/media/previous-colored.svg": "/sty-music/static/media/previous-colored.a6a49d8777caa1956395.svg",
@@ -28,14 +32,15 @@
     "static/media/next-colored.svg": "/sty-music/static/media/next-colored.95b304738f9b6ec9d11a.svg",
     "static/media/next.svg": "/sty-music/static/media/next.821782e5ffc24e71e2fe.svg",
     "static/media/liked.svg": "/sty-music/static/media/liked.0ebcc81a7ce8a7598e82e6a28bed0587.svg",
+    "static/media/search.svg": "/sty-music/static/media/search.637364399496a7536f83b297138479df.svg",
     "static/media/play.svg": "/sty-music/static/media/play.ec33adbbe51ad9127bdd.svg",
     "static/media/play-big.svg": "/sty-music/static/media/play-big.6b2bcaf23e10981c7e6b.svg",
     "static/media/Pause.svg": "/sty-music/static/media/Pause.c37b7f996ce4b9a2e7ed.svg",
     "main.b068e688.css.map": "/sty-music/static/css/main.b068e688.css.map",
-    "main.ec79726a.js.map": "/sty-music/static/js/main.ec79726a.js.map"
+    "main.e36779ee.js.map": "/sty-music/static/js/main.e36779ee.js.map"
   },
   "entrypoints": [
     "static/css/main.b068e688.css",
-    "static/js/main.ec79726a.js"
+    "static/js/main.e36779ee.js"
   ]
 }
