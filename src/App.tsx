@@ -16,6 +16,7 @@ import { setSearchResult } from './toolkitRedux/musicListSlice';
 
 function App() {
 
+  // Стейты
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [volume, setVolume] = React.useState<number>(0.1)
   const [currentSongIndex, setCurrentSongIndex] = React.useState<number>(0)
@@ -25,19 +26,23 @@ function App() {
   const [isShuffle, setIsShuffle] = React.useState<boolean>(false)
   const [count, setCount] = React.useState<any>()
 
+  // Создание ref элементов для управления музыкой
   const audioRef = React.useRef<HTMLAudioElement | null>(null)
   const progressBarRef = React.useRef<HTMLInputElement | null>(null)
 
+  // Создание массива с музыкой для выполнения поиска
   const dispatch = useDispatch()
   const musicList = useSelector((state: RootState) =>state.musicList.musicList)
 
-
+  // функция для изменения массива песен в роутах
   function choocePlaylist(songList: SongInfo[], index:number) {
     setOutputSongList(songList)
     setCurrentSongIndex(index)
     setCount(index)
   }
 
+
+  // хук для перемешивания песен в массиве
   useEffect(() => {
     if(isShuffle) {
       setOutputSongList(() => shuffleSongs(outputSongList))
@@ -46,33 +51,38 @@ function App() {
     }
   }, [isShuffle])
 
-
+  // хук для отслеживания воспроизведения музыки
   React.useEffect(() => {
-    if(isPlaying) {
-      audioRef.current?.play().catch((err) => console.error(err))
-    } else {
-      audioRef.current?.pause()
-    }
+        if(isPlaying) {
+          audioRef.current?.play().catch((err) => console.error(err))
+        } else {
+          audioRef.current?.pause()
+        }
   }, [isPlaying])
 
+  // хук для регулирования громкости
   React.useEffect(() => {
     if(audioRef.current) {
       audioRef.current.volume = volume
     }
   }, [volume])
 
-
+  // хук для загрузки песни при нажатии на карточку с песней
   React.useEffect(() => {
-
     if(audioRef.current && count >= 0) {
       audioRef.current.src = outputSongList[currentSongIndex].url
       audioRef.current.load()
-      audioRef.current.play()
+      audioRef.current.addEventListener('canplaythrough', () => audioRef.current?.play())
       setIsPlaying(true)
     }
-  }, [currentSongIndex])
+
+    return () => {
+      audioRef.current?.removeEventListener('canplaythrough', () => audioRef.current?.play());
+    };
+    }, [currentSongIndex])
 
 
+  // хук для изменения прогресс бара
   React.useEffect(() => {
     if(audioRef.current && progressBarRef.current){
       const seconds = Math.floor(audioRef.current?.duration)
@@ -80,6 +90,7 @@ function App() {
     }
   }, [audioRef.current?.onloadedmetadata, audioRef.current?.readyState])
 
+  // хук для переключении песни после его окончания
   React.useEffect(() => {
     if (audioRef.current) {
       audioRef.current.addEventListener("ended", () => {
@@ -100,11 +111,12 @@ function App() {
   }, [currentSongIndex, repeatSong]);
 
 
-
+  // функция изменения громкости
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(e.target.value));
   };
 
+  // функция для воспроизведения музыки
   function playMusic() {
     if(!isPlaying) {
       setIsPlaying(true)
@@ -114,7 +126,7 @@ function App() {
       audioRef.current?.pause()
     }
   }
-
+  // функция для переключении песни
   function nextSong() {
     if(outputSongList[currentSongIndex] && outputSongList.length !== 0) {
       if(currentSongIndex < outputSongList.length -1 && currentSongIndex + 1) {
@@ -128,6 +140,7 @@ function App() {
 
   }
 
+  // функция для переключении песни
   function previousSong() {
     if(currentSongIndex !== 0) {
       setCurrentSongIndex(currentSongIndex - 1)
@@ -137,14 +150,17 @@ function App() {
     }
   }
 
+  // функция изменения стейта для повтора песни
   function toggleRepeat() {
     setRepeatSong(!repeatSong)
   }
 
+  // функция изменения стейта для перемешивания песен
   function toggleShuffle() {
     setIsShuffle(!isShuffle)
   }
 
+  // функция для перемешивания массива
   function shuffleSongs(songsArray: SongInfo[]): SongInfo[] {
     const shuffledArray = [...songsArray]
 
@@ -158,6 +174,7 @@ function App() {
     return shuffledArray
   }
 
+  // функция для отслеживания проигрывания песни и присваивание его прогрессбару
   const handleTimeUpdate = () => {
     if(audioRef.current && progressBarRef.current){
       setSeekBarPos(audioRef.current.currentTime)
@@ -165,12 +182,14 @@ function App() {
     }
   }
 
+  // изменение проигрывания песни по нажатию на определенный промежуток в прогресс баре
   const changeRange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(audioRef.current && progressBarRef.current){
       audioRef.current.currentTime = parseInt(progressBarRef.current.value)
     }
   }
 
+  // функция поиска
   const handleSearch = (search: string) => {
     const searchResult = musicList.filter(item => item.songName.toLowerCase().includes(search) || item.artist.toLowerCase().includes(search))
     dispatch(setSearchResult(searchResult))

@@ -81,7 +81,7 @@ const Player = (
           <p className='player__song-title'>{songName}</p>
           <p className='player__sing-artist'>{artist}</p>
         </div>
-        <button className='player__item-like' onClick={() => handleToggleLike(songId)}><img className='player__like-image' src={`${like ? './image/liked.svg' : './image/like.svg'}`} alt="" /></button>
+        <button className='player__item-like' onClick={() => handleToggleLike(songId)}><img className='player__like-image' src={`${like ? '/image/liked.svg' : '/image/like.svg'}`} alt="" /></button>
       </div>
 
       <div className='player__bar'>
@@ -96,7 +96,7 @@ const Player = (
         <input className='player__music' type="range" min={0} step={0.01} value={seekBarPos} ref={progressBarRef} onChange={changeRange}/>
       </div>
       <div className='player__volume'>
-        <img src="./image/volume.svg" alt="" />
+        <img src="/image/volume.svg" alt="" />
         <input type="range" min={0} max={1} step={0.01} value={volume} onChange={handleVolumeChange}/>
       </div>
     </section>

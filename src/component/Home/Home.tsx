@@ -30,13 +30,13 @@ const Home = ({setCurrentSongIndex}:Props) => {
               <p className='banners__description'>All mine, Lie again, Petty call me everyday, Out of time, No love, Bad habit, and so much more</p>
             </div>
             <div className='banners__like-container'>
-              <img className='banners__human-like' src="./image/humans.png" alt="" />
-              <img className='banners__like-logo' src="./image/Heart.svg" alt="" />
+              <img className='banners__human-like' src="/image/humans.png" alt="" />
+              <img className='banners__like-logo' src="/image/Heart.svg" alt="" />
               <p className='banners__like'>33k Likes</p>
             </div>
           </div>
-          <img className='banners__artist' src="./image/photo.png" alt="" />
-          <img className='banner__effect' src="./image/Vector.svg" alt="" />
+          <img className='banners__artist' src="/image/photo.png" alt="" />
+          <img className='banner__effect' src="/image/Vector.svg" alt="" />
         </div>
 
         <div className='home__chart'>
@@ -52,7 +52,7 @@ const Home = ({setCurrentSongIndex}:Props) => {
                     <h3 className='chart__item-title'>{item.songName}</h3>
                     <p className='chart__item-description'>{item.artist}</p>
                   </div>
-                  <button className='chart__item-like' onClick={() => handleToggleLike(item.id)}><img className='chart__like-image' src={`${item.isLiked ? './image/liked.svg' : './image/like.svg'}`} alt="" /></button>
+                  <button className='chart__item-like' onClick={() => handleToggleLike(item.id)}><img className='chart__like-image' src={`${item.isLiked ? '/image/liked.svg' : '/image/like.svg'}`} alt="" /></button>
                 </li>
               )
             })}

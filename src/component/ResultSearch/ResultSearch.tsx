@@ -2,7 +2,6 @@ import './ResultSearch.scss'
 import { SongInfo } from "../../utils/musicList"
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleLike } from '../../toolkitRedux/musicListSlice'
-import React from 'react'
 import { RootState } from '../../toolkitRedux/store'
 
 type Props = {
@@ -33,7 +32,7 @@ export const ResultSearch = ({setCurrentSongIndex}: Props) => {
               <h3 className='result__item-title'>{item.songName}</h3>
               <p className='result__item-description'>{item.artist}</p>
             </div>
-            <button className='result__item-like' onClick={() => handleToggleLike(item.id)}><img className='result__like-image' src={`${item.isLiked ? './image/liked.svg' : './image/like.svg'}`} alt="" /></button>
+            <button className='result__item-like' onClick={() => handleToggleLike(item.id)}><img className='result__like-image' src={`${item.isLiked ? '/image/liked.svg' : '/image/like.svg'}`} alt="" /></button>
           </li>
         )
       })}

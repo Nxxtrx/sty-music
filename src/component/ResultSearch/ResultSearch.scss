@@ -3,6 +3,7 @@ $play-big: url(../../../public/image/play-big.svg);
 
 .result{
   min-width: 1125px;
+  padding: 0;
 }
 
 .result__item{
@@ -97,8 +98,8 @@ opacity: .6;
 
 .result__like-image{
   padding-top: 4px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 
