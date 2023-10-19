@@ -1,6 +1,9 @@
 import React, { ChangeEvent } from 'react'
 import './Search.scss'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
+const searchIcon: string = require("../../utils/image/search.svg").default
+
 
 type Props ={
   handleSearch: (search:string) => void
@@ -30,7 +33,7 @@ export const Search = ({handleSearch}:Props) => {
 
   return (
   <div className='home__search'>
-    <img className='home__search-img' src="/image/search.svg" alt="" />
+    <img className='home__search-img' src={searchIcon} alt="" />
     <input className='home__input' type="text" placeholder='search' value={searchQuery || ''} onChange={handleChange}/>
   </div>
   )

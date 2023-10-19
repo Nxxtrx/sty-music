@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom'
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { RootState } from './toolkitRedux/store';
-import './font/font.css'
+import { RootState } from '../../toolkitRedux/store';
+import '../../font/font.css'
 import './app.scss'
-import Header from './component/Header/Header';
-import { Search } from './component/Search/Search';
-import Home from './component/Home/Home'
-import { Library } from './component/Library/Library';
-import Player from './component/Player/Player';
-import { SongInfo } from './utils/musicList';
-import { ResultSearch } from './component/ResultSearch/ResultSearch';
+import Header from '../Header/Header';
+import { Search } from '../Search/Search';
+import Home from '../Home/Home'
+import { Library } from '../Library/Library';
+import Player from '../Player/Player';
+import { SongInfo } from '../../utils/musicList';
+import { ResultSearch } from '../ResultSearch/ResultSearch';
 import { useDispatch } from 'react-redux';
-import { setSearchResult } from './toolkitRedux/musicListSlice';
+import { setSearchResult } from '../../toolkitRedux/musicListSlice';
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
   const musicList = useSelector((state: RootState) =>state.musicList.musicList)
 
   // функция для изменения массива песен в роутах
-  function choocePlaylist(songList: SongInfo[], index:number) {
+  function choosePlaylist(songList: SongInfo[], index:number) {
     setOutputSongList(songList)
     setCurrentSongIndex(index)
     setCount(index)
@@ -79,7 +79,7 @@ function App() {
     return () => {
       audioRef.current?.removeEventListener('canplaythrough', () => audioRef.current?.play());
     };
-    }, [currentSongIndex])
+  }, [currentSongIndex])
 
 
   // хук для изменения прогресс бара
@@ -201,9 +201,9 @@ function App() {
       <main className="main">
         <Search handleSearch={handleSearch}/>
         <Routes>
-          <Route path='/' element={<Home setCurrentSongIndex={choocePlaylist}/>} />
-          <Route path='library' element={<Library  setCurrentSongIndex={choocePlaylist}/>} />
-          <Route path='search' element={<ResultSearch setCurrentSongIndex={choocePlaylist}/>}/>
+          <Route path='/' element={<Home setCurrentSongIndex={choosePlaylist}/>} />
+          <Route path='library' element={<Library  setCurrentSongIndex={choosePlaylist}/>} />
+          <Route path='search' element={<ResultSearch setCurrentSongIndex={choosePlaylist}/>}/>
         </Routes>
         <Player
           audioRef={audioRef}

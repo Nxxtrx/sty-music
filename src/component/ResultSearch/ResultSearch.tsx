@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleLike } from '../../toolkitRedux/musicListSlice'
 import { RootState } from '../../toolkitRedux/store'
 
+const liked: string = require("../../utils/image/liked.svg").default
+const like: string = require("../../utils/image/like.svg").default
+
 type Props = {
   setCurrentSongIndex: (songList: SongInfo[], index: number) => void
 }
@@ -32,7 +35,7 @@ export const ResultSearch = ({setCurrentSongIndex}: Props) => {
               <h3 className='result__item-title'>{item.songName}</h3>
               <p className='result__item-description'>{item.artist}</p>
             </div>
-            <button className='result__item-like' onClick={() => handleToggleLike(item.id)}><img className='result__like-image' src={`${item.isLiked ? '/image/liked.svg' : '/image/like.svg'}`} alt="" /></button>
+            <button className='result__item-like' onClick={() => handleToggleLike(item.id)}><img className='result__like-image' src={`${item.isLiked ? liked : like}`} alt="" /></button>
           </li>
         )
       })}

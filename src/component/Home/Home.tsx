@@ -1,9 +1,16 @@
 import './Home.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleLike } from '../../toolkitRedux/musicListSlice';
-import { MusicList, SongInfo } from '../../utils/musicList';
-import React from 'react';
+import { SongInfo } from '../../utils/musicList';
 import { RootState } from '../../toolkitRedux/store';
+const vector: string = require("../../utils/image/vector.svg").default
+const artistPhoto = require('../../utils/image/photo.png')
+const humans = require('../../utils/image/humans.png')
+const heart: string = require("../../utils/image/Heart.svg").default
+const liked: string = require("../../utils/image/liked.svg").default
+const like: string = require("../../utils/image/like.svg").default
+
+
 
 type Props = {
   setCurrentSongIndex: (songList: SongInfo[], index: number) => void
@@ -30,13 +37,13 @@ const Home = ({setCurrentSongIndex}:Props) => {
               <p className='banners__description'>All mine, Lie again, Petty call me everyday, Out of time, No love, Bad habit, and so much more</p>
             </div>
             <div className='banners__like-container'>
-              <img className='banners__human-like' src="/image/humans.png" alt="" />
-              <img className='banners__like-logo' src="/image/Heart.svg" alt="" />
+              <img className='banners__human-like' src={humans} alt="" />
+              <img className='banners__like-logo' src={heart} alt="" />
               <p className='banners__like'>33k Likes</p>
             </div>
           </div>
-          <img className='banners__artist' src="/image/photo.png" alt="" />
-          <img className='banner__effect' src="/image/Vector.svg" alt="" />
+          <img className='banners__artist' src={artistPhoto} alt="" />
+          <img className='banner__effect' src={vector} alt="" />
         </div>
 
         <div className='home__chart'>
@@ -52,7 +59,7 @@ const Home = ({setCurrentSongIndex}:Props) => {
                     <h3 className='chart__item-title'>{item.songName}</h3>
                     <p className='chart__item-description'>{item.artist}</p>
                   </div>
-                  <button className='chart__item-like' onClick={() => handleToggleLike(item.id)}><img className='chart__like-image' src={`${item.isLiked ? '/image/liked.svg' : '/image/like.svg'}`} alt="" /></button>
+                  <button className='chart__item-like' onClick={() => handleToggleLike(item.id)}><img className='chart__like-image' src={`${item.isLiked ? liked : like}`} alt="" /></button>
                 </li>
               )
             })}
