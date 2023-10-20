@@ -35,3 +35,38 @@
   display: block;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 1200px) {
+
+  .header{
+    margin-left: 20px;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+  .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 40px;
+  }
+
+  .header__logo{
+    margin: 0;
+  }
+
+  .header__menu-page{
+    flex-direction: row;
+    padding: 10px 10px;
+    border-radius: 0;
+    background-color: inherit;
+    padding-right: 20px;
+  }
+
+  .header__menu-page:first-child {
+    margin: 0;
+  }
+
+}
