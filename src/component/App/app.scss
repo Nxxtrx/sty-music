@@ -16,6 +16,13 @@
   padding-bottom: 200px;
 }
 
+@media screen and (max-width: 1200px) {
+  .page{
+    justify-content: flex-start;
+  }
+}
+
+
 @media screen and (max-width: 450px) {
   .page{
     flex-direction: column;

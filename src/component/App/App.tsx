@@ -93,21 +93,27 @@ function App() {
   // хук для переключении песни после его окончания
   React.useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.addEventListener("ended", () => {
-        if(repeatSong && audioRef.current) {
-          audioRef.current.currentTime = 0
-          audioRef.current.play()
+      const onEnded = () => {
+        if (repeatSong && audioRef.current) {
+          if (audioRef.current.ended) {
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().catch((err) => console.error(err));
+          } else {
+            nextSong();
+          }
         } else {
-          nextSong()
+          nextSong();
         }
-      });
-    }
+      };
 
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener("ended", nextSong);
-      }
-    };
+      audioRef.current.addEventListener("ended", onEnded);
+
+      return () => {
+        if(audioRef.current){
+          audioRef.current.removeEventListener("ended", onEnded);
+        }
+      };
+    }
   }, [currentSongIndex, repeatSong]);
 
 
