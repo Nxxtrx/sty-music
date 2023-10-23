@@ -24,7 +24,7 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
 }
 
 .player__artist-container{
-  max-width: 150px;
+  max-width: 90px;
 }
 
 .player__artist{
@@ -34,6 +34,7 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   grid-gap: 13px;
   min-width: 200px;
   margin-right: 10px;
+
 }
 
 .player__song-title{
@@ -41,7 +42,10 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   font-weight: 700;
   line-height: 120%;
   margin: 0 0 3px;
-  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .player__sing-artist{
@@ -50,6 +54,8 @@ $shuffle-icon-colored: url('../../../public/image/shuffle-colored.svg');
   line-height: 120%;
   color: #FFFFFF70;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 

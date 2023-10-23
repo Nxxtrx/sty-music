@@ -16,6 +16,11 @@
   padding-bottom: 200px;
 }
 
+.main {
+  max-width: 1125px;
+  width: 100%;
+}
+
 @media screen and (max-width: 1200px) {
   .page{
     justify-content: flex-start;

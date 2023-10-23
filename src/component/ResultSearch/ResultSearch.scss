@@ -68,6 +68,10 @@ $play-big: url(../../../public/image/play-big.svg);
   font-weight: 400;
   line-height: 120%;
   margin: 0 0 20px 50px;
+  max-width: 800px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .result__item-description{
@@ -76,6 +80,10 @@ $play-big: url(../../../public/image/play-big.svg);
   line-height: 120%;
   color: #efeee0bd;
   margin: 0 0 0 50px;
+  max-width: 800px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .result__item-like{
@@ -102,6 +110,104 @@ opacity: .6;
   height: 20px;
 }
 
+@media screen and (max-width: 1200px) {
+  .result {
+    min-width: 0;
+    margin-right: 20px;
+  }
+
+  .result__item-title{
+    max-width: 500px;
+  }
+
+  .result__item-description{
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .result__image-container{
+    height: 100px;
+    width: 100px;
+  }
+
+  .result__item-title{
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+  }
+
+  .result__item-description{
+    font-size: 10px;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+
+  .result__item-title{
+    max-width: 300px;
+  }
+
+  .result__item-description{
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .result__item-title{
+    max-width: 140px;
+  }
+
+  .result__item-description{
+    max-width: 140px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .result {
+    margin-left: 20px;
+  }
+
+  .result__item-title{
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    max-width: 110px;
+  }
+
+  .result__item-description{
+    font-size: 8px;
+    margin-left: 20px;
+    max-width: 110px;
+  }
+
+  .result__image-container{
+    height: 60px;
+    width: 60px;
+    border-radius: 20px;
+  }
+
+  .result__image{
+    border-radius: 20px;
+  }
+  .result__item{
+    border-radius: 20px;
+    border-width: 1px;
+  }
+
+  .result__item-like{
+    width: 25px;
+    height: 25px;
+  }
+
+  .result__like-image{
+    width: 10px;
+    height: 10px;
+  }
+
+}
 
 
 
