@@ -129,6 +129,10 @@ $play-std: url(../../../public/image/play.svg);
   font-weight: 400;
   line-height: 20px;
   margin: 0 0 4px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .chart__item-description{
@@ -136,6 +140,10 @@ $play-std: url(../../../public/image/play.svg);
   font-weight: 400;
   color: #FFFFFF80;
   margin: 0 0 8px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .chart__item-time{
@@ -254,6 +262,13 @@ opacity: .6;
     justify-content: flex-start;
   }
 
+  .chart__item-description{
+    max-width: 130px;
+  }
+
+  .chart__item-title{
+    max-width: 130px;
+  }
 }
 
 @media screen and (max-width: 930px) {
@@ -310,6 +325,14 @@ opacity: .6;
     margin-right: 20px;
   }
 
+  .chart__item-description{
+    max-width: 200px;
+  }
+
+  .chart__item-title{
+    max-width: 200px;
+  }
+
 }
 
 @media screen and (max-width: 450px) {
@@ -329,6 +352,14 @@ opacity: .6;
 
   .releases__list{
     justify-content: space-between;
+  }
+
+  .chart__item-description{
+    max-width: 160px;
+  }
+
+  .chart__item-title{
+    max-width: 160px;
   }
 
 }
@@ -362,6 +393,14 @@ opacity: .6;
 
   .releases__item-description{
     font-size: 8px;
+  }
+
+  .chart__item-description{
+    max-width: 100px;
+  }
+
+  .chart__item-title{
+    max-width: 120px;
   }
 }
 
