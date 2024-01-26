@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleLike } from '../../toolkitRedux/musicListSlice'
 import { RootState } from '../../toolkitRedux/store'
 import { useEffect, useState } from 'react'
+import React from 'react'
 
 const liked: string = require("../../utils/image/liked.svg").default
 const unLike: string = require("../../utils/image/like.svg").default
@@ -76,7 +77,7 @@ const Player = (
       } else {
         setLike(false)
       }
-    }, [handleToggleLike])
+    }, [handleToggleLike, songId])
 
   return(
     <section className='player'>

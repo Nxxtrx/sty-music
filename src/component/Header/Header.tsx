@@ -1,10 +1,11 @@
+import React from 'react'
 import './Header.scss'
 import { Link } from 'react-router-dom'
 const logo: string = require("../../utils/image/logo.svg").default
 const profile: string = require("../../utils/image/profile.svg").default
 const playlist: string = require("../../utils/image/playlist.svg").default
 
-const Header = () => {
+const Header = React.memo(() => {
   return(
     <header className='header'>
     <Link to='/'><img className='header__logo' src={logo} alt="logo" /></Link>
@@ -16,5 +17,5 @@ const Header = () => {
     </nav>
   </header>
   )
-}
+})
 export default Header;

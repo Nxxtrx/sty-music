@@ -1,3 +1,4 @@
+import React from 'react'
 import './Home.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleLike } from '../../toolkitRedux/musicListSlice';
@@ -10,21 +11,19 @@ const heart: string = require("../../utils/image/Heart.svg").default
 const liked: string = require("../../utils/image/liked.svg").default
 const like: string = require("../../utils/image/like.svg").default
 
-
-
 type Props = {
   setCurrentSongIndex: (songList: SongInfo[], index: number) => void
 }
 
-const Home = ({setCurrentSongIndex}:Props) => {
+const Home = React.memo(({setCurrentSongIndex}:Props) => {
 
   const dispatch = useDispatch();
 
   const music = useSelector((state: RootState) =>state.musicList.musicList)
 
-  const handleToggleLike = (index: number) => {
+  const handleToggleLike = React.useCallback((index: number) => {
     dispatch(toggleLike(index))
-  }
+  }, [dispatch])
 
   return (
     <section className='home'>
@@ -85,6 +84,6 @@ const Home = ({setCurrentSongIndex}:Props) => {
       </div>
     </section>
   )
-}
+})
 
 export default Home;

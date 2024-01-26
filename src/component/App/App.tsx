@@ -14,7 +14,7 @@ import { ResultSearch } from '../ResultSearch/ResultSearch';
 import { useDispatch } from 'react-redux';
 import { setSearchResult } from '../../toolkitRedux/musicListSlice';
 
-function App() {
+const App = React.memo(() => {
 
   // Стейты
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -35,11 +35,11 @@ function App() {
   const musicList = useSelector((state: RootState) =>state.musicList.musicList)
 
   // функция для изменения массива песен в роутах
-  function choosePlaylist(songList: SongInfo[], index:number) {
+  const choosePlaylist = React.useCallback((songList: SongInfo[], index:number) => {
     setOutputSongList(songList)
     setCurrentSongIndex(index)
     setCount(index)
-  }
+  }, [])
 
 
   // хук для перемешивания песен в массиве
@@ -196,10 +196,10 @@ function App() {
   }
 
   // функция поиска
-  const handleSearch = (search: string) => {
+  const handleSearch = React.useCallback((search: string) => {
     const searchResult = musicList.filter(item => item.songName.toLowerCase().includes(search) || item.artist.toLowerCase().includes(search))
     dispatch(setSearchResult(searchResult))
-  }
+  }, [])
 
   return (
     <div className="page">
@@ -237,6 +237,6 @@ function App() {
       </main>
     </div>
   );
-}
+})
 
 export default App;
